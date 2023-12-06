@@ -1,25 +1,165 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
-@import url('./reset.css');
-@import url('./vite-promo.css');
-@import url('./header.css');
+.container {
+  background-color: rgb(75, 75, 219);
+  position: sticky;
+  top: 0; /* Указывает, на каком расстоянии от верха окна просмотра элемент должен стать фиксированным */
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Чтобы элемент оставался поверх других элементов */
+}
+.search-form {
+  background-color: #ffff;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
 
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+.search-form-btn {
+  margin-left: 50px;
+  border: none;
+  background-color: unset;
+}
+.search-icon {
+  display: block;
+  margin: auto;
+  width: 20px;
+  height: 20px;
+  fill: black;
+}
 
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
+.search-form-input {
+  border: none;
+  outline: none;
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+.load-more {
+  border: 1px solid;
+  border-radius: 8px;
+  width: 200px;
+  background-color: rgb(75, 75, 219);
+  outline: unset;
+  color: #ffff;
+  display: block;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #111;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.gallery {
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.photo-card {
+  width: calc((100% - 3 * 10px) / 4);
+}
+
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
